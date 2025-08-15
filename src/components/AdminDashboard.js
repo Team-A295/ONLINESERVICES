@@ -70,7 +70,7 @@ const AdminDashboard = () => {
 
 
     if (loading) {
-        return <h1> Dashboard...</h1>;
+        return <h1>Loading Dashboard...</h1>;
     }
 
     return (
