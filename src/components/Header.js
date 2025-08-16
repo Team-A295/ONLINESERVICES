@@ -36,7 +36,7 @@ console.log("Header is checking the user profile:", userProfile);
                         <>
                          <Link to="/admin" onClick={() => setMenuOpen(false)} style={{ color: '#FFD700', fontWeight: 'bold' }}> Admin Dashboard
                          </Link>
-                         
+                    
                         </>
                     )}
                 </div>

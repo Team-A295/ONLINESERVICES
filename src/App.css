@@ -187,49 +187,82 @@ body {
   margin-top: 50px;
   text-align: center;
 }
+
 .testimonials-grid {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   flex-wrap: wrap;
   margin-top: 30px;
 }
+
 .testimonial-card {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   border-radius: 12px;
-  padding: 40px;
-  width: 480px;
+  padding: 25px;
+  width: 450px;            /* ✅ default for laptops/desktops */
+  min-height: 220px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(6px);
+  text-align: left;
 }
+
 .testimonial-card:hover {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   transform: translateY(-8px);
-  box-shadow: 0 6px 18px gold
+  box-shadow: 0 6px 18px gold;
 }
+
 .quote {
   font-weight: bold;
   color: #fffbea;
+  font-size: 1rem;
+  line-height: 1.5;
 }
+
 .customer-info {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 15px;
 }
+
 .customer-info img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  object-fit: cover;
 }
+
 .customer-info h4 {
   margin: 0;
   color: #ffd700;
+  font-size: 1rem;
 }
+
 .stars {
   color: gold;
+  margin-top: 5px;
 }
+
+/* ✅ Smaller width ONLY on mobiles & small devices */
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 240px;          /* smaller for tablets & mobiles */
+    min-height: 200px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    width: 100%;           /* full width on very small screens */
+    max-width: 220px;
+    padding: 15px;
+  }
+}
+
+
 /* ===== Auth Pages ===== */
 .auth-page {
   display: flex;
@@ -1055,3 +1088,124 @@ th {
     color: gold; /* This makes the table headers gold */
     
 }
+.activity-container, .admin-dashboard {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color:gold
+}
+
+.bookings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.activity-card {
+  background: #203a43;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+h3 hr{
+  color:gold;
+  width: 100%;
+}
+.status-container h3{
+   color: gold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gold;
+  padding-bottom: 5px;
+}
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.status-badge.pending { background-color: #f0ad4e; }
+.status-badge.completed { background-color: #5cb85c; }
+.status-badge.cancelled { background-color: #d9534f; }
+
+.clear-btn, .edit-btn, .delete-btn, .back-home-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.edit-btn { background-color: #0275d8; color: #fff; }
+.delete-btn { background-color: #d9534f; color: #fff; }
+
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .activity-card {
+    flex: 1 1 100%;
+  }
+  table th, table td {
+    padding: 8px;
+  }
+}
+.dashboard-main-heading {
+  text-align: center;
+  color: gold;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px #333;
+}
+
+.dashboard-sub-heading {
+  color: gold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gold;
+  padding-bottom: 5px;
+}
+

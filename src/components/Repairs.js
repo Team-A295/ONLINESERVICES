@@ -1,11 +1,13 @@
+// Repairs.js
 import React, { useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // added useLocation
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaWrench } from "react-icons/fa";
 import { BookingContext } from "../context/BookingContext";
+import { workersData } from "./Contractors"; // same as Cleaning.js
 
 const Repairs = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // added
+  const location = useLocation();
   const { addBooking, user } = useContext(BookingContext);
 
   const { city = "", area = "" } = location.state || {};
@@ -31,6 +33,16 @@ const Repairs = () => {
       navigate("/signup");
       return;
     }
+
+    // Get contractors safely
+    const contractors = workersData.Repairs || [];
+    if (!contractors.length) {
+      alert("No contractors available for Repairs right now. Please try later.");
+      return;
+    }
+
+    const randomContractor = contractors[Math.floor(Math.random() * contractors.length)];
+
     addBooking({
       ...service,
       category: "Repairs",
@@ -38,9 +50,12 @@ const Repairs = () => {
       area,
       userId: user.uid,
       userEmail: user.email,
-      username: user.displayName || user.email.split("@")[0], // added username
-      name: service.name,
+      username: user.displayName || user.email.split("@")[0],
+      contractorName: randomContractor.name,
+      contractorDetails: randomContractor
     });
+
+    alert(`Booking successful! Assigned Contractor: ${randomContractor.name}`);
     navigate("/userdashboard");
   };
 
@@ -49,9 +64,7 @@ const Repairs = () => {
       <h1>
         Appliance & Repair Services <FaWrench style={{ color: "gold", marginLeft: "8px" }} />
       </h1>
-      <p>
-        Get certified technicians for appliance repair at your doorstep—fast, reliable, and affordable.
-      </p>
+      <p>Get certified technicians for appliance repair at your doorstep.</p>
       <div className="guys-grid">
         {repairServices.map((service, index) => (
           <div key={index} className="guys-card">
@@ -63,16 +76,12 @@ const Repairs = () => {
             <h3>{service.name}</h3>
             <p>{service.desc}</p>
             <h4 className="guys-price">{service.charges}</h4>
-            <button className="guys-btn" onClick={() => handleBooking(service)}>
-              Book Service
-            </button>
+            <button className="guys-btn" onClick={() => handleBooking(service)}>Book Service</button>
           </div>
         ))}
       </div>
       <div className="back-btn-container">
-        <button className="back-btn" onClick={() => navigate("/services")}>
-          Back to Services
-        </button>
+        <button className="back-btn" onClick={() => navigate("/services")}>Back to Services</button>
       </div>
     </div>
   );
