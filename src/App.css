@@ -1208,4 +1208,37 @@ table th, table td {
   border-bottom: 1px solid gold;
   padding-bottom: 5px;
 }
+/* Dropdown for editing status */
+.status-dropdown {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #2c5364;
+  color:white;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 13px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.status-badge.pending {
+  background-color: orange;
+  color: white;
+}
+
+.status-badge.completed {
+  background-color: green;
+  color: white;
+}
+
+.status-badge.cancelled {
+  background-color: red;
+  color: white;
+}
 
