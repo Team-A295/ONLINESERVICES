@@ -6,9 +6,6 @@ import { BookingContext } from '../context/BookingContext';
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { userProfile } = useContext(BookingContext);
-
-console.log("Header is checking the user profile:", userProfile); 
-
     return (
         <header className="main-header">
             <div className="header-content">
