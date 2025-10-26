@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <main className="main-content">
       <div className="hero-section center-text">
-        <h1>Welcome to Online Services</h1>
+        <h1>Welcome to online services</h1>
         <h3>Professional Services, Just a Click Away.</h3>
         <p>
           Welcome to <strong>Online Services</strong>, where managing your home and office is finally stress-free.  
